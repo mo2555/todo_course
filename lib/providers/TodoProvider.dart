@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todo_app_course/helper/cache_helper.dart';
 import 'package:todo_app_course/util/app_constance.dart';
 
 class TodoProvider extends ChangeNotifier {
+  bool? themeProvider;
+
+  initLocal() async {
+    themeProvider = await CacheHelper.getData(key: AppConstance.themeKey);
+    notifyListeners();
+  }
+
+  toggleLocal() async {
+    bool state = await CacheHelper.setData(
+        key: AppConstance.themeKey, value: !(themeProvider ?? false));
+
+    if (state) {
+      themeProvider = !(themeProvider ?? false);
+    }
+    notifyListeners();
+  }
+
+/*
   bool themeMode = true;
 
   List todoList = [];
@@ -51,5 +70,6 @@ class TodoProvider extends ChangeNotifier {
   updateTodoList(){
 
   }
+   */
 
 }

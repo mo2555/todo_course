@@ -7,28 +7,15 @@ class MyHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<TodoProvider>(
-      builder: (context,provider,_) {
-        return Scaffold(
-
-          body: Dismissible(
-
-            key: const Key('test'),
-            child: Container(
-              height: 100,
-              width: 100,
-              color: Colors.white,
-            ),
-          ),
-
-          floatingActionButton: FloatingActionButton(
-            onPressed: (){
-              provider.getTodoList();
-            },
-          ),
-        );
-      }
-    );
+    return Consumer<TodoProvider>(builder: (context, provider, _) {
+      return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            provider.toggleLocal();
+          },
+        ),
+      );
+    });
   }
 }
 
