@@ -22,6 +22,45 @@ class TodoProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  hiveTest() async {
+
+
+
+    await Hive.box(AppConstance.todoBox).put(
+      AppConstance.todoList,
+      {
+        'key1': 0,
+        'key2': [
+          '1',
+        ],
+        'key3': 'value',
+        'key4': false,
+        'key5': 1.0,
+      },
+    );
+    print(Hive.box(AppConstance.todoBox).get(AppConstance.todoList,defaultValue: {},));
+
+
+
+    // final data =Hive.box(AppConstance.todoBox).get(AppConstance.todoList,defaultValue: {},);
+    //
+    // data['key4'] = true;
+    //
+    // data.addAll({
+    //   'key6':false,
+    // });
+    //
+    // await Hive.box(AppConstance.todoBox).put(
+    //   AppConstance.todoList,
+    //   data,
+    // );
+    //
+    // print(Hive.box(AppConstance.todoBox).get(AppConstance.todoList,defaultValue: {},));
+
+
+
+  }
+
 /*
   bool themeMode = true;
 

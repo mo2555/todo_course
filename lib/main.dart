@@ -7,11 +7,12 @@ import 'package:todo_app_course/util/app_constance.dart';
 import 'package:todo_app_course/view/home/my_hame_screen.dart';
 
 void main() async {
-  //
-  // await Hive.initFlutter();
-  // await Hive.openBox(AppConstance.todoBox);
+
 
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+  await Hive.openBox(AppConstance.todoBox);
 
   bool theme = await CacheHelper.getData(key: AppConstance.themeKey);
 
@@ -70,9 +71,9 @@ Memory=> int x = 1;
 
 var
 
-sqflite===> Mobile
+sqflite ===> Mobile
 
-hive --=
+hive ==>
 
 
 

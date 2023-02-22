@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app_course/helper/cache_helper.dart';
 import 'package:todo_app_course/providers/TodoProvider.dart';
 
 class MyHomeScreen extends StatelessWidget {
@@ -10,8 +11,8 @@ class MyHomeScreen extends StatelessWidget {
     return Consumer<TodoProvider>(builder: (context, provider, _) {
       return Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            provider.toggleLocal();
+          onPressed: () async{
+            provider.hiveTest();
           },
         ),
       );
